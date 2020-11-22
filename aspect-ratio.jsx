@@ -11,7 +11,7 @@ const AspectRatio = ({ children, fraction=16/9, className, ...restProps }) => (
 
 AspectRatio.propTypes = {
   children: PropTypes.element.isRequired,
-  fraction: PropTypes.string
+  fraction: PropTypes.string,
   className: PropType.string
 };
 
