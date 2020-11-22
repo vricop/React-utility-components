@@ -3,9 +3,7 @@ import PropTypes from 'prop-types'
 
 const AspectRatio = ({ children, fraction=16/9, className, ...restProps }) => (
   <figure className="m-0">
-    <div {...restProps}
-      className={`aspect-ratio | ${className}`}
-      style={{ paddingTop: `calc(100% / ${fraction})` }}>
+    <div {...restProps} className={`aspect-ratio | ${className}`} style={{ paddingTop: `calc(100% / ${fraction})` }}>
       {children}
     </div>
   </figure>
