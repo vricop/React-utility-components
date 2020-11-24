@@ -2,7 +2,7 @@ import React from 'react'
 import master from '../assets/img/master.svg'
 import PropTypes from 'prop-types'
 
-const Icon = ({ name, width=16, height, aspectRatio=1, ...restProps }) => {
+const Icon = ({ name, width=16, height, aspectRatio=1, className, ...restProps }) => {
   // [ If $width is set ] [ $height is not ] [ and $aspectratio is set ] [ then apply $aspectRatio ]
   if (width !== undefined && height === undefined && aspectRatio !== undefined) {
     height = width / aspectRatio
@@ -11,6 +11,9 @@ const Icon = ({ name, width=16, height, aspectRatio=1, ...restProps }) => {
     height = width
   }
 
+  const baseClasses = `fill-currentColor pointer-events-none` 
+  className = className ? `${baseClasses} ${className}` : baseClasses
+
   return (
     <svg 
       aria-hidden="true"
@@ -18,7 +21,8 @@ const Icon = ({ name, width=16, height, aspectRatio=1, ...restProps }) => {
       role="img"
       width={width}
       height={height}
-      className="fill-currentColor pointer-events-none" {...restProps}>
+      className={className}
+      {...restProps}>
       <use href={`${master}#${name}`} />
     </svg>
   )
