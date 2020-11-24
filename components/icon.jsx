@@ -3,8 +3,6 @@ import master from '../assets/img/master.svg'
 import PropTypes from 'prop-types'
 
 const Icon = ({ name, width=16, height, aspectRatio=1, ...restProps }) => {
-  console.log({width, height, aspectRatio})
-
   // [ If $width is set ] [ $height is not ] [ and $aspectratio is set ] [ then apply $aspectRatio ]
   if (width !== undefined && height === undefined && aspectRatio !== undefined) {
     height = width / aspectRatio
@@ -12,8 +10,6 @@ const Icon = ({ name, width=16, height, aspectRatio=1, ...restProps }) => {
   } else if (height === undefined) {
     height = width
   }
-
-  console.log(width !== undefined && height === undefined && aspectRatio !== undefined)
 
   return (
     <svg 
