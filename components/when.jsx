@@ -12,11 +12,11 @@ Show.proptypes = {
 /*
   Usage:
 
-  1) As a properties
+  1) With properties
   
   <Show when={true} component={<MyComponentA /> otherwise={<MyComponentB />} />
 
-  2) As a children
+  2) Mixed, property & children
   
   <Show when={true} otherwhise={<MyComponentB />}>
     <MyComponentA />
