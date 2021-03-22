@@ -1,7 +1,7 @@
 import PropTypes from 'proptypes'
 
 export default function Show({ when:condition, children, otherwhise, component }) {
-  if(condition) component || children || null
+  if(condition) return component || children || null
   return otherwhise || null
 }
 
