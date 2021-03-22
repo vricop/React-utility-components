@@ -1,6 +1,6 @@
 import PropTypes from 'proptypes'
 
-export default function Show({ when:condition=null, children, otherwhise=null, component }) {
+export default function Show({ when:condition, children, otherwhise, component }) {
   if(condition) component || children || null
   return otherwhise || null
 }
