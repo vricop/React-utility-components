@@ -14,7 +14,7 @@ Show.proptypes = {
 
   1) With properties
   
-  <Show when={true} component={<MyComponentA /> otherwise={<MyComponentB />} />
+  <Show when={true} component={<MyComponentA />} otherwise={<MyComponentB />} />
 
   2) Mixed, property & children
   
