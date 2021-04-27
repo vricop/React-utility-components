@@ -1,20 +1,23 @@
 import { useState } from 'react'
 
 /**
- * Controlled input elements with a custom hook
- * @param {any} initialValue - Initial value for the controlled input element
- * @returns Array(any, function) - Returns the current state and de
- * setNameOfState function
- * to update the state
+ * Handle fields in controlled forms using state
+ * @param {any} initialState - Initial state for the controlled input element
+ * @returns Array(any, function) - Returns the current state, `input` and a 
+ * function handler for event `handleInputChange`, that takes an event object as
+ * argument.
  */
-export default function useInputChange(initialValue) {
-  const [input, setInput] = useState(initialValue)
+export default function useInputChange(initialState) {
+  const [input, setInput] = useState(initialState)
 
-  const handleInputChange = e =>
+  const handleInputChange = ({ currentTarget }) => {
+    const { name, value } = currentTarget
+
     setInput({
       ...input,
-      [e.currentTarget.name]: e.currentTarget.value,
+      [name]: value,
     })
+  }
 
   return [input, handleInputChange]
 }
