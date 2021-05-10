@@ -9,9 +9,11 @@ export default function useControlledFields(initialState = {}) {
   const [fields, setFields] = useState(initialState)
 
   /**
-   * Updates the fields `state` from a group of different inputs (checkboxes & radios)
-   * automatically when a listener is triggered
-   * @param {object} { currentTarget } The Event object from the listener
+   * Updates the fields `state` from a group of different inputs automatically
+   * when a listener is triggered. This event handler is meant for checkboxes &
+   * radio inputs. It keeps a group of related data into an array. It uses set
+   * types temporarily for ease of use when setting & unsetting the array.
+   * @param {object} {{ currentTarget }} The Event object from the listener
    */
   const handleGroupedFields = ({ currentTarget }) => {
     const { name, value, checked } = currentTarget
@@ -19,9 +21,9 @@ export default function useControlledFields(initialState = {}) {
     /**
      * 1. Keep a copy of the current field values, if empty default to []
      * 2. Use `add` or `delete` method  based on the `checked` attribute
-     * 3. Create a temporary set, `fieldSet`, based on current fields `state`
+     * 3. Create a new set based on current fields `state`
      * 4. Add/delete the new value based on the `checked` attribute
-     * 5. Convert `fieldSet` back to array & update state
+     * 5. Update state
      */
     const currentFieldsState = [...(fields && fields[name] ? fields[name] : [])]
     const toggle = checked ? 'add' : 'delete'
@@ -39,5 +41,10 @@ export default function useControlledFields(initialState = {}) {
     setFields({ ...fields, [name]: value })
   }
 
-  return { fields, handleFields, handleGroupedFields, setFields }
+  return {
+    fields,
+    setFields,
+    handleFields,
+    handleGroupedFields,
+  }
 }
