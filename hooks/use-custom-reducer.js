@@ -5,7 +5,7 @@ export const ACTIONS = {
 }
 
 const REDUCER_ACTIONS = {
-  [ACTION_NAME]: (state, payload) => ({}),
+  [ACTIONS.ACTION_NAME]: (state, payload) => ({}),
 }
 
 const reducer = (state, action) => {
